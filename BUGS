@@ -1,0 +1,25 @@
+new cell isnt added after filling form
+score isnt increasing
+
+want to add \* to maditory fields
+
+manager selection isnt scaleable
+
+{managers.map((manager) => (
+
+  <option key={manager.id} value={manager.id}>
+    {manager.name}
+  </option>
+))}
+
+Optional Enhancements
+
+Escape key to close modal Add keydown listener for Esc
+Animation / transition Add fade-in/out for better UX
+Focus trap for accessibility Lock focus inside modal while open
+Prevent scroll behind modal Add overflow: hidden to <body> when modal is open
+
+drag-and-drop reordering,
+search,
+analytics, or
+even database-backed persistence.
