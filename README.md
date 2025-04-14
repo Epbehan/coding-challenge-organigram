@@ -1,46 +1,117 @@
-# Getting Started with Create React App
+# 🏢 Org Chart App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An interactive React application for visualizing and managing an organization chart. Add new employees, assign them to managers, and automatically calculate dynamic influence scores throughout the hierarchy.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📝 Project Brief
 
-### `npm start`
+There is a company where there is a Leader (leader has no manager) and then the organization structure is pyramidal, where each person has a manager and may have direct reports.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Each person has an **influence score**.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- A manager's **total influence score** is their own influence score **plus the sum of their direct reports' influence scores**.
 
-### `npm test`
+The app starts with the following data:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```ts
+const organigram = [
+  { index: 0, name: "Jon Hancok", influence: 100 },
+  { index: 1, name: "Manager 1", influence: 50, manager: 0 },
+  { index: 2, name: "Manager 2", influence: 50, manager: 0 },
+  { index: 3, name: "Report 1 - 1", influence: 10, manager: 1 },
+  { index: 4, name: "Report 1 - 2", influence: 10, manager: 1 },
+  { index: 5, name: "Report 2 - 1", influence: 10, manager: 2 },
+  { index: 6, name: "Report 2 - 2", influence: 10, manager: 2 },
+  { index: 7, name: "Report 1 - 3", influence: 10, manager: 1 },
+  { index: 8, name: "Report 2 - 3", influence: 10, manager: 2 },
+];
+```
 
-### `npm run build`
+### 💻 Objective
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Create a React-based webpage that:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Visually displays this organizational hierarchy as a table
+- Calculates and displays total influence scores for each employee dynamically
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 🌟 Bonus Features
 
-### `npm run eject`
+- ✅ Uses TypeScript for type safety
+- ✅ Allows adding a new employee and assigning them to an existing manager
+- ✅ Supports influence score recalculation
+- ⬜️ Optional: Unit tests for functions and components
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## ✨ Features
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- 📈 **Dynamic Influence Calculation**  
+  Influence scores are automatically updated when new employees are added, using a tree-based recursive algorithm.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- 🧠 **Smart Structure**  
+  The org chart is modeled as a recursive data structure (`Employee`) with support for unlimited depth.
 
-## Learn More
+- 🧹 **Modular Components**  
+  Components are fully separated and reusable — including OrgChart, Modal, NewEmployeeForm, and OrgNode.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 🧮 **CS Fundamentals in Action**
+  - Tree traversal (DFS)
+  - Recursive score calculation
+  - Functional state updates
+  - Immutable data management
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
+
+## 💼 How It Works
+
+1. The org chart is structured as a tree, where each `Employee` node can have `directReports`.
+2. When a new employee is added via the modal form:
+   - A unique ID is generated
+   - The employee is attached to their selected manager
+   - Influence scores are recalculated bottom-up using a **Depth-First Search (DFS)** algorithm
+3. The chart updates automatically and renders employees grouped by their depth level.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or newer)
+- npm or yarn
+
+### Installation
+
+```bash
+git clone https://github.com/your-username/org-chart-app.git
+cd org-chart-app
+npm install
+```
+
+### Running the App
+
+```bash
+npm start
+```
+
+The app will run on `http://localhost:3000`.
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── components/         # React components (OrgChart, Modal, Form, etc.)
+├── data/               # Static org chart data & recursive utilities
+├── styles/             # CSS styles
+├── App.tsx             # Main app logic
+└── index.tsx           # Entry point
+```
+
+---
+
+## 🙌 Acknowledgments
+
+Built with 💻 using React + TypeScript.
