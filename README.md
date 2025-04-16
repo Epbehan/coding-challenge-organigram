@@ -64,9 +64,9 @@ Create a React-based webpage that:
 ### Installation
 
 ```bash
-git clone https://github.com/your-username/org-chart-app.git
-cd org-chart-app
-npm install
+git clone
+cd coding-challenge/
+yarn install
 ```
 
 ### Running the App
