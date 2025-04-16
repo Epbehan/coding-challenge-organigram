@@ -35,31 +35,11 @@ Create a React-based webpage that:
 - Visually displays this organizational hierarchy as a table
 - Calculates and displays total influence scores for each employee dynamically
 
-### 🌟 Bonus Features
+### 🌟 Bonus Points
 
-- ✅ Uses TypeScript for type safety
-- ✅ Allows adding a new employee and assigning them to an existing manager
-- ✅ Supports influence score recalculation
+- ✅ Use TypeScript
+- ✅ Add UI to allow adding a new employee and assigning them to an existing manager
 - ⬜️ Optional: Unit tests for functions and components
-
----
-
-## ✨ Features
-
-- 📈 **Dynamic Influence Calculation**  
-  Influence scores are automatically updated when new employees are added, using a tree-based recursive algorithm.
-
-- 🧠 **Smart Structure**  
-  The org chart is modeled as a recursive data structure (`Employee`) with support for unlimited depth.
-
-- 🧹 **Modular Components**  
-  Components are fully separated and reusable — including OrgChart, Modal, NewEmployeeForm, and OrgNode.
-
-- 🧮 **CS Fundamentals in Action**
-  - Tree traversal (DFS)
-  - Recursive score calculation
-  - Functional state updates
-  - Immutable data management
 
 ---
 
