@@ -59,7 +59,7 @@ Create a React-based webpage that:
 ### Prerequisites
 
 - Node.js (v14 or newer)
-- npm or yarn
+- yarn
 
 ### Installation
 
@@ -72,7 +72,7 @@ npm install
 ### Running the App
 
 ```bash
-npm start
+yarn start
 ```
 
 The app will run on `http://localhost:3000`.
